@@ -254,6 +254,38 @@
       transform: scale(0.98);
     }
 
+    /* BOTÃO WHATSAPP */
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 1em;
+      font-weight: 700;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      background: linear-gradient(135deg, #20ba5a 0%, #0f7570 100%);
+    }
+
+    .btn-whatsapp:active {
+      transform: scale(0.98);
+    }
+
+    .btn-whatsapp svg {
+      width: 24px;
+      height: 24px;
+    }
+
     /* ===== RESULTADO ===== */
     .resultado {
       display: none;
@@ -293,9 +325,6 @@
 
     .metric-card.combustivel { border-color: #2196F3; }
     .metric-card.combustivel .metric-value { color: #2196F3; }
-
-    .metric-card.durabilidade { border-color: #4caf50; }
-    .metric-card.durabilidade .metric-value { color: #4caf50; }
 
     .metric-card.roi { border-color: #9C27B0; }
     .metric-card.roi .metric-value { color: #9C27B0; }
@@ -494,7 +523,7 @@
 
       .resultado.show {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
       }
 
@@ -641,7 +670,6 @@
           <th>Modelo</th>
           <th>Linha</th>
           <th>Descrição</th>
-          <th>Preço Broker</th>
         </tr>
       </thead>
       <tbody>
@@ -649,48 +677,42 @@
           <td>295/80 R22.5 X MULTI Z2</td>
           <td>Multi</td>
           <td>Máxima durabilidade e performance</td>
-          <td>R$ 2.746,69</td>
         </tr>
         <tr>
           <td>295/80 R22.5 X MULTI D2</td>
           <td>Multi</td>
           <td>Reforçada, aplicações severas</td>
-          <td>R$ 3.066,05</td>
         </tr>
         <tr>
           <td>295/80 R22.5 X MULTI ENERGY Z</td>
           <td>Multi Energy</td>
           <td>Economia combustível + km extra</td>
-          <td>R$ 2.744,24</td>
         </tr>
         <tr>
           <td>295/80 R22.5 X MULTI ENERGY D</td>
           <td>Multi Energy</td>
           <td>Economia + robustez extrema</td>
-          <td>R$ 3.080,22</td>
         </tr>
         <tr>
           <td>275/80 R22.5 X MULTI Z</td>
           <td>Multi</td>
           <td>Uso misto, versatilidade</td>
-          <td>R$ 2.558,70</td>
         </tr>
         <tr>
           <td>275/80 R22.5 X MULTI D</td>
           <td>Multi</td>
           <td>Km extra, aplicações exigentes</td>
-          <td>R$ 3.217,78</td>
         </tr>
         <tr>
           <td>215/75 R17.5 XZE 2</td>
           <td>Urbano</td>
-          <td>Segmento urbano, longa vida</td>
-          <td>R$ 1.275,28</td>
+          <td>Segmento rodoviário, longa vida</td>
         </tr>
       </tbody>
     </table>
-    <p style="margin-top: 15px; font-size: 0.9em; color: #999;"><strong>Preços em R$ por unidade.</strong> Sujeitos a cadastro e aprovação Michelin.</p>
+    <p style="margin-top: 15px; font-size: 0.9em; color: #999;"><strong>Preços sob consulta.</strong> Sujeitos a cadastro e aprovação Michelin.</p>
   </div>
+
 
   <!-- FAQ -->
   <div class="info-section">
@@ -727,8 +749,19 @@
       <h2>Dados da Frota</h2>
       
       <div class="form-group">
-        <label>Nome da Empresa</label>
-        <input type="text" id="empresa" placeholder="Ex: Transportadora XYZ">
+        <label>Nome da Empresa <span style="color: red;">*</span></label>
+        <input type="text" id="empresa" placeholder="Ex: Transportadora XYZ" required>
+      </div>
+
+      <div class="form-group">
+        <label>Nome do Contato <span style="color: red;">*</span></label>
+        <input type="text" id="nome_contato" placeholder="Ex: João Silva" required>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone <span style="color: red;">*</span></label>
+        <input type="tel" id="telefone_contato" placeholder="Ex: (67) 9 8417-3800" required>
+        <div class="info-text">Formato: (XX) 9 XXXX-XXXX</div>
       </div>
 
       <div class="form-group">
@@ -756,6 +789,7 @@
           <option value="continental">Continental</option>
           <option value="bridgestone">Bridgestone</option>
           <option value="goodyear">Goodyear</option>
+          <option value="Michelin">Michelin</option>
           <option value="outra">Outra</option>
         </select>
       </div>
@@ -813,6 +847,7 @@
       </div>
     </div>
 
+
     <!-- PAINEL DIREITO: CUSTOS E COMBUSTÍVEL -->
     <div class="card">
       <h2>Custos & Operacional</h2>
@@ -836,7 +871,6 @@
         <select id="situacao_compra">
           <option value="novo">Novo cliente (vindo de outra marca)</option>
           <option value="migracao">Migrando de revenda (já usa Michelin)</option>
-          <option value="substituicao">Substituição de linha</option>
         </select>
       </div>
 
@@ -846,11 +880,11 @@
 
   <!-- RESULTADO -->
   <div class="resultado" id="resultado">
-    <!-- 4 CARDS PRINCIPAIS -->
+    <!-- 2 CARDS PRINCIPAIS -->
     <div class="metric-card preco">
-      <div class="metric-label">Diferença do Investimento em Relação a concorrencia:
+      <div class="metric-label">Economia em Preço
         <span class="tooltip">?
-          <span class="tooltiptext">(preço atual - preço Michelin) × compra mensal × 12 meses</span>
+          <span class="tooltiptext">Custo anual pneus atuais - Custo anual pneus Michelin (já considera durabilidade)</span>
         </span>
       </div>
       <div class="metric-value" id="res_custo_preco">R$ 0</div>
@@ -865,19 +899,10 @@
       <div class="metric-value" id="res_economia_combustivel">R$ 0</div>
     </div>
 
-    <div class="metric-card durabilidade">
-      <div class="metric-label">Economia em Durabilidade
-        <span class="tooltip">?
-          <span class="tooltiptext">(custo/km atual - custo/km Michelin) × km rodado anual</span>
-        </span>
-      </div>
-      <div class="metric-value" id="res_economia_durabilidade">R$ 0</div>
-    </div>
-
     <div class="metric-card roi">
-      <div class="metric-label">Economia Anual Cliente Broker
+      <div class="metric-label">Economia Anual Total
         <span class="tooltip">?
-          <span class="tooltiptext">Diferença do Investimento em Relação a concorrencia + economia combustível + economia durabilidade</span>
+          <span class="tooltiptext">Economia em preço + economia combustível</span>
         </span>
       </div>
       <div class="metric-value" id="res_total_anual">R$ 0</div>
@@ -891,16 +916,32 @@
       <div class="detalhe-secao">
         <div class="detalhe-secao-titulo">
           <span class="detalhe-secao-icon">💰</span>
-          Diferença do Investimento em Relação a concorrencia:
+          Economia em Preço (já inclui durabilidade)
         </div>
         <div class="detalhe-row">
           <div class="detalhe-item">
             <div class="detalhe-label">Preço do Pneu Atual
               <span class="tooltip">?
-                <span class="tooltiptext">Valor pago atualmente em cada pneu novo (input do gestor)</span>
+                <span class="tooltiptext">Valor pago atualmente em cada pneu novo</span>
               </span>
             </div>
             <div class="detalhe-valor" id="det_preco_atual">R$ 0</div>
+          </div>
+          <div class="detalhe-item">
+            <div class="detalhe-label">Compra Mensal Atual
+              <span class="tooltip">?
+                <span class="tooltiptext">Pneus comprados por mês com modelo atual</span>
+              </span>
+            </div>
+            <div class="detalhe-valor" id="det_compra_mensal_atual">0 pneus</div>
+          </div>
+          <div class="detalhe-item">
+            <div class="detalhe-label">Custo Anual Atual
+              <span class="tooltip">?
+                <span class="tooltiptext">Preço Pneu Atual × Compra Mensal × 12</span>
+              </span>
+            </div>
+            <div class="detalhe-valor" id="det_custo_anual_atual">R$ 0</div>
           </div>
           <div class="detalhe-item">
             <div class="detalhe-label">Preço Michelin Broker
@@ -911,25 +952,25 @@
             <div class="detalhe-valor" id="det_preco_michelin">R$ 0</div>
           </div>
           <div class="detalhe-item">
-            <div class="detalhe-label">Diferença (por pneu)
+            <div class="detalhe-label">Compra Mensal Michelin
               <span class="tooltip">?
-                <span class="tooltiptext">Preço Atual - Preço Michelin Broker</span>
+                <span class="tooltiptext">Pneus comprados por mês com Michelin (maior durabilidade = menos trocas)</span>
               </span>
             </div>
-            <div class="detalhe-valor" id="det_diferenca_unitaria">R$ 0</div>
+            <div class="detalhe-valor" id="det_compra_mensal_michelin">0 pneus</div>
           </div>
           <div class="detalhe-item">
-            <div class="detalhe-label">Compra Mensal
+            <div class="detalhe-label">Custo Anual Michelin
               <span class="tooltip">?
-                <span class="tooltiptext">(Pneus em solo × km mensal) ÷ km vida útil atual<br>Quantos pneus a frota troca por mês</span>
+                <span class="tooltiptext">Preço Pneu Michelin × Compra Mensal × 12</span>
               </span>
             </div>
-            <div class="detalhe-valor" id="det_compra_mensal">0 pneus</div>
+            <div class="detalhe-valor" id="det_custo_anual_michelin">R$ 0</div>
           </div>
           <div class="detalhe-item">
-            <div class="detalhe-label">Diferença de Custo Anual
+            <div class="detalhe-label">Economia Anual em Preço
               <span class="tooltip">?
-                <span class="tooltiptext">Diferença × compra mensal × 12 meses</span>
+                <span class="tooltiptext">Custo Anual Atual - Custo Anual Michelin</span>
               </span>
             </div>
             <div class="detalhe-valor" id="det_custo_preco_anual">R$ 0</div>
@@ -939,10 +980,14 @@
 
       <!-- DETALHE 2: ECONOMIA EM COMBUSTÍVEL -->
       <div class="detalhe-secao">
+        
         <div class="detalhe-secao-titulo">
           <span class="detalhe-secao-icon">⛽</span>
           Economia em Combustível <span style="font-size:0.75em; color:#999;">(apenas Energy Z)</span>
         </div>
+          <div id="aviso-migracao" class="aviso" style="display:none;">
+          <strong>Nota:</strong> Como você já é usuário Michelin, a economia de combustível está desativada.
+          </div>
         <div class="detalhe-row">
           <div class="detalhe-item">
             <div class="detalhe-label">Redução Consumo (%)
@@ -971,7 +1016,7 @@
           <div class="detalhe-item">
             <div class="detalhe-label">Preço Diesel (R$/L)
               <span class="tooltip">?
-                <span class="tooltiptext">Preço atual do litro de diesel (input do gestor)</span>
+                <span class="tooltiptext">Preço atual do litro de diesel</span>
               </span>
             </div>
             <div class="detalhe-valor" id="det_preco_diesel">R$ 0</div>
@@ -987,61 +1032,14 @@
         </div>
       </div>
 
-      <!-- DETALHE 3: ECONOMIA EM DURABILIDADE -->
-      <div class="detalhe-secao">
-        <div class="detalhe-secao-titulo">
-          <span class="detalhe-secao-icon">🔧</span>
-          Economia em Durabilidade (Custo por KM)
-        </div>
-        <div class="detalhe-row">
-          <div class="detalhe-item">
-            <div class="detalhe-label">Custo/km (Atual)
-              <span class="tooltip">?
-                <span class="tooltiptext">Preço atual ÷ km vida útil atual</span>
-              </span>
-            </div>
-            <div class="detalhe-valor" id="det_custo_km_atual">R$ 0,00</div>
-          </div>
-          <div class="detalhe-item">
-            <div class="detalhe-label">Custo/km (Michelin)
-              <span class="tooltip">?
-                <span class="tooltiptext">Preço Michelin ÷ km vida útil Michelin</span>
-              </span>
-            </div>
-            <div class="detalhe-valor" id="det_custo_km_michelin">R$ 0,00</div>
-          </div>
-          <div class="detalhe-item">
-            <div class="detalhe-label">Economia/km
-              <span class="tooltip">?
-                <span class="tooltiptext">Custo/km Atual - Custo/km Michelin</span>
-              </span>
-            </div>
-            <div class="detalhe-valor" id="det_economia_km">R$ 0,00</div>
-          </div>
-          <div class="detalhe-item">
-            <div class="detalhe-label">KM Rodado/ano (Frota)
-              <span class="tooltip">?
-                <span class="tooltiptext">km mensal × 12 meses × número de veículos</span>
-              </span>
-            </div>
-            <div class="detalhe-valor" id="det_km_frota">0 km</div>
-          </div>
-          <div class="detalhe-item">
-            <div class="detalhe-label">Economia Anual
-              <span class="tooltip">?
-                <span class="tooltiptext">Economia/km × km rodado anual</span>
-              </span>
-            </div>
-            <div class="detalhe-valor" id="det_economia_durabilidade_anual">R$ 0</div>
-          </div>
-        </div>
-      </div>
-
       <!-- RESUMO FINAL -->
       <div class="detalhe-secao">
         <div class="detalhe-secao-titulo">
           <span class="detalhe-secao-icon">📊</span>
           Resumo de Resultados
+        </div>
+        <div id="aviso-migracao3" class="aviso" style="display:none;">
+          <strong>Nota:</strong> Como você já é usuário Michelin, apenas a economia em preço está sendo considerada (redução de combustível desativada).
         </div>
         <div class="detalhe-row">
           <div class="detalhe-item">
@@ -1055,15 +1053,23 @@
           <div class="detalhe-item">
             <div class="detalhe-label">Economia Anual
               <span class="tooltip">?
-                <span class="tooltiptext">Diferença do Investimento em Relação a concorrencia + economia combustível + economia durabilidade</span>
+                <span class="tooltiptext">Economia em preço + economia combustível</span>
               </span>
             </div>
             <div class="detalhe-valor" id="det_economia_anual">R$ 0</div>
           </div>
         </div>
-        <div id="aviso-migracao" class="aviso" style="display:none;">
-          <strong>Nota:</strong> Como você já é usuário Michelin, a comparação é com a durabilidade que você informou da sua frota atual.
-        </div>
+        
+      </div>
+
+      <!-- BOTÃO WHATSAPP -->
+      <div style="margin-top: 30px; padding-top: 30px; border-top: 2px solid #eee;">
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.773 1.149c-1.474.787-2.738 1.9-3.6 3.231-1.72 2.748-1.897 6.518-.501 9.52 1.39 2.973 4.005 5.034 7.201 5.48 1.206.177 2.476.177 3.68 0 2.516-.37 4.844-1.318 6.708-3.105 2.51-2.504 3.78-6.11 3.434-9.732-.344-3.723-2.597-6.962-6.03-8.288a9.865 9.865 0 00-3.119-.476m8.081 19.695C4.473 23.953.5 19.98.5 15.087.5 8.677 5.675 3.5 12.085 3.5c6.41 0 11.585 5.177 11.585 11.585 0 4.893-3.973 8.866-8.865 8.866-1.225 0-2.408-.234-3.531-.674-1.088.396-2.287.609-3.455.609-2.565 0-4.997-1.053-6.768-2.928z"/>
+          </svg>
+          💬 Enviar Orçamento via WhatsApp
+        </button>
       </div>
     </div>
   </div>
@@ -1094,8 +1100,24 @@ function atualizarLinhaEspecifica() {
 }
 
 function calcular() {
-  // Inputs
-  const empresa = document.getElementById('empresa').value;
+  // Validação de campos obrigatórios
+  const empresa = document.getElementById('empresa').value.trim();
+  const nome_contato = document.getElementById('nome_contato').value.trim();
+  const telefone_contato = document.getElementById('telefone_contato').value.trim();
+  
+  if (!empresa) {
+    alert('⚠️ Preencha o Nome da Empresa');
+    return;
+  }
+  if (!nome_contato) {
+    alert('⚠️ Preencha o Nome do Contato');
+    return;
+  }
+  if (!telefone_contato) {
+    alert('⚠️ Preencha o Telefone');
+    return;
+  }
+
   const num_veiculos = Number(document.getElementById('num_veiculos').value);
   const num_pneus = Number(document.getElementById('num_pneus').value);
   const km_mensal = Number(document.getElementById('km_mensal').value);
@@ -1107,17 +1129,17 @@ function calcular() {
   const linha = document.getElementById('linha_michelin').value;
 
   if (!linha) {
-    alert('Preencha todos os campos obrigatórios (Linha Michelin)');
+    alert('⚠️ Preencha todos os campos obrigatórios (Linha Michelin)');
     return;
   }
 
   const preco_michelin = PRECOS_BROKER[linha];
   const km_anual_frota = km_mensal * 12 * num_veiculos;
 
-  // Obter km Michelin conforme linha
+  // Dados Michelin conforme linha
   let km_michelin_1vida = 0;
   let economia_combustivel_pct = 0;
-  
+
   if (linha === 'energy') {
     km_michelin_1vida = Number(document.getElementById('km_michelin_energy').value);
     economia_combustivel_pct = Number(document.getElementById('economia_combustivel_pct').value);
@@ -1129,81 +1151,135 @@ function calcular() {
 
   // ===== CÁLCULOS PRINCIPAIS =====
 
-  // 1. COMPRA MENSAL
-  const pneus_compra_mensal = (num_pneus * km_mensal) / km_pneu_atual;
+  // COMPRA MENSAL CORRIGIDA
+  const compra_mensal_atual = (num_pneus * km_mensal) / km_pneu_atual;
+  const compra_mensal_michelin = (num_pneus * km_mensal) / km_michelin_1vida;
 
-  // 2. INVESTIMENTO EM PREÇO
-  const diferenca_preco_unitaria = (preco_pneu_atual - preco_michelin) * (-1);
-  const custo_preco_anual = diferenca_preco_unitaria * pneus_compra_mensal * 12;
+  // ECONOMIA EM PREÇO - FÓRMULA CORRIGIDA (JÁ INCLUI DURABILIDADE)
+  const custo_anual_atual = preco_pneu_atual * compra_mensal_atual * 12;
+  const custo_anual_michelin = preco_michelin * compra_mensal_michelin * 12;
+  const economia_preco_anual = custo_anual_atual - custo_anual_michelin;
 
-  // 3. ECONOMIA EM COMBUSTÍVEL
-  const km_economizado_combustivel = km_anual_frota * (economia_combustivel_pct / 100);
-  const litros_economizados = km_economizado_combustivel / km_litro;
-  const economia_combustivel_anual = litros_economizados * preco_diesel;
-
-  // 4. CUSTO POR KM
-  const custo_km_atual = preco_pneu_atual / km_pneu_atual;
-  const custo_km_michelin = preco_michelin / km_michelin_1vida;
-  const economia_por_km = custo_km_atual - custo_km_michelin;
-
-  // 5. ECONOMIA EM DURABILIDADE
-  const economia_durabilidade_anual = km_anual_frota * economia_por_km;
-
-  // 6. TOTAL ANUAL
-  const total_anual = -custo_preco_anual + economia_combustivel_anual + economia_durabilidade_anual;
-
-  // ===== EXIBIÇÃO DOS RESULTADOS =====
-
-  // Cards principais
-  if (custo_preco_anual >= 0) {
-    document.getElementById('res_custo_preco').textContent = 'R$ ' + custo_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-  } else {
-    document.getElementById('res_custo_preco').textContent = '-R$ ' + Math.abs(custo_preco_anual).toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  // Economia combustível (só se Energy e não migracao)
+  let economia_combustivel_anual = 0;
+  let litros_economizados = 0;
+  if (situacao !== 'migracao') {
+    const km_economizado_combustivel = km_anual_frota * (economia_combustivel_pct / 100);
+    litros_economizados = km_economizado_combustivel / km_litro;
+    economia_combustivel_anual = litros_economizados * preco_diesel;
   }
 
-  document.getElementById('res_economia_combustivel').textContent = 'R$ ' + economia_combustivel_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-  document.getElementById('res_economia_durabilidade').textContent = 'R$ ' + economia_durabilidade_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-  
-  if (total_anual >= 0) {
-    document.getElementById('res_total_anual').textContent = 'R$ ' + total_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-  } else {
-    document.getElementById('res_total_anual').textContent = '-R$ ' + Math.abs(total_anual).toLocaleString('pt-BR', {maximumFractionDigits: 0});
-  }
+  // Total anual (SEM DURABILIDADE SEPARADA - JÁ ESTÁ NO PREÇO)
+  const total_anual = economia_preco_anual + economia_combustivel_anual;
 
-  // Detalhes Seção 1
+  // ===== EXIBIÇÃO =====
+  document.getElementById('res_custo_preco').textContent =
+    'R$ ' + economia_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+
+  document.getElementById('res_economia_combustivel').textContent =
+    'R$ ' + economia_combustivel_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+
+  document.getElementById('res_total_anual').textContent =
+    'R$ ' + total_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+
+  // Detalhes
   document.getElementById('det_preco_atual').textContent = 'R$ ' + preco_pneu_atual.toLocaleString('pt-BR', {maximumFractionDigits: 2});
+  document.getElementById('det_compra_mensal_atual').textContent = compra_mensal_atual.toFixed(1) + ' pneus/mês';
+  document.getElementById('det_custo_anual_atual').textContent = 'R$ ' + custo_anual_atual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  
   document.getElementById('det_preco_michelin').textContent = 'R$ ' + preco_michelin.toLocaleString('pt-BR', {maximumFractionDigits: 2});
-  document.getElementById('det_diferenca_unitaria').textContent = 'R$ ' + diferenca_preco_unitaria.toLocaleString('pt-BR', {maximumFractionDigits: 2});
-  document.getElementById('det_compra_mensal').textContent = pneus_compra_mensal.toFixed(1) + ' pneus/mês';
-  document.getElementById('det_custo_preco_anual').textContent = 'R$ ' + custo_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-
-  // Detalhes Seção 2
+  document.getElementById('det_compra_mensal_michelin').textContent = compra_mensal_michelin.toFixed(1) + ' pneus/mês';
+  document.getElementById('det_custo_anual_michelin').textContent = 'R$ ' + custo_anual_michelin.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  
+  document.getElementById('det_custo_preco_anual').textContent = 'R$ ' + economia_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  
   document.getElementById('det_economia_comb_pct').textContent = economia_combustivel_pct.toFixed(1) + '%';
   document.getElementById('det_km_anual').textContent = km_anual_frota.toLocaleString('pt-BR') + ' km';
   document.getElementById('det_litros_economizados').textContent = litros_economizados.toLocaleString('pt-BR', {maximumFractionDigits: 0});
   document.getElementById('det_preco_diesel').textContent = 'R$ ' + preco_diesel.toLocaleString('pt-BR', {maximumFractionDigits: 2});
   document.getElementById('det_economia_combustivel_anual').textContent = 'R$ ' + economia_combustivel_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-
-  // Detalhes Seção 3
-  document.getElementById('det_custo_km_atual').textContent = 'R$ ' + custo_km_atual.toFixed(4);
-  document.getElementById('det_custo_km_michelin').textContent = 'R$ ' + custo_km_michelin.toFixed(4);
-  document.getElementById('det_economia_km').textContent = 'R$ ' + economia_por_km.toFixed(4);
-  document.getElementById('det_km_frota').textContent = km_anual_frota.toLocaleString('pt-BR') + ' km';
-  document.getElementById('det_economia_durabilidade_anual').textContent = 'R$ ' + economia_durabilidade_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
-
-  // Detalhes Seção 4
-  document.getElementById('det_economia_mensal').textContent = 'R$ ' + (total_anual/12).toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  
+  document.getElementById('det_economia_mensal').textContent = 'R$ ' + (total_anual / 12).toLocaleString('pt-BR', {maximumFractionDigits: 0});
   document.getElementById('det_economia_anual').textContent = 'R$ ' + total_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
 
-  // Aviso migração
-  if (situacao === 'migracao') {
-    document.getElementById('aviso-migracao').style.display = 'block';
-  } else {
-    document.getElementById('aviso-migracao').style.display = 'none';
-  }
+  // Aviso de migração
+  document.getElementById('aviso-migracao').style.display = (situacao === 'migracao') ? 'block' : 'none';
+  document.getElementById('aviso-migracao3').style.display = (situacao === 'migracao') ? 'block' : 'none';
 
   document.getElementById('resultado').classList.add('show');
 }
+
+function enviarWhatsApp() {
+  // Coleta todos os dados do formulário e resultados
+  const empresa = document.getElementById('empresa').value || 'Não informado';
+  const nome_contato = document.getElementById('nome_contato').value || 'Não informado';
+  const telefone_contato = document.getElementById('telefone_contato').value || 'Não informado';
+  const num_veiculos = document.getElementById('num_veiculos').value;
+  const num_pneus = document.getElementById('num_pneus').value;
+  const km_mensal = document.getElementById('km_mensal').value;
+  const marca_atual = document.getElementById('marca_atual').value;
+  const preco_pneu_atual = document.getElementById('preco_pneu_atual').value;
+  const km_pneu_atual = document.getElementById('km_pneu_atual').value;
+  const linha_michelin = document.getElementById('linha_michelin').options[document.getElementById('linha_michelin').selectedIndex].text;
+  const situacao_compra = document.getElementById('situacao_compra').options[document.getElementById('situacao_compra').selectedIndex].text;
+  const km_litro = document.getElementById('km_por_litro').value;
+  const preco_diesel = document.getElementById('preco_diesel').value;
+
+  // Resultados
+  const economia_preco = document.getElementById('res_custo_preco').textContent;
+  const economia_combustivel = document.getElementById('res_economia_combustivel').textContent;
+  const total_anual = document.getElementById('res_total_anual').textContent;
+  const economia_mensal = document.getElementById('det_economia_mensal').textContent;
+
+  // Monta a mensagem
+  const mensagem = `
+*📋 ORÇAMENTO - PROGRAMA BROKER MICHELIN*
+
+*👤 CONTATO:*
+Nome: ${nome_contato}
+Telefone: ${telefone_contato}
+
+*🏢 EMPRESA:*
+Nome: ${empresa}
+Veículos: ${num_veiculos}
+Pneus em solo: ${num_pneus}
+KM mensal/veículo: ${km_mensal}
+
+*🛞 PNEUS ATUAIS:*
+Marca: ${marca_atual}
+Preço unitário: R$ ${preco_pneu_atual}
+Durabilidade: ${km_pneu_atual} km
+
+*✅ PNEUS MICHELIN BROKER:*
+Linha: ${linha_michelin}
+
+*⚙️ PARÂMETROS OPERACIONAIS:*
+Consumo (km/L): ${km_litro}
+Preço diesel: R$ ${preco_diesel}
+Situação: ${situacao_compra}
+
+*💰 RESULTADOS:*
+├ Economia em Preço: ${economia_preco}
+├ Economia Combustível: ${economia_combustivel}
+├ Economia Mensal: ${economia_mensal}
+└ Economia Anual Total: ${total_anual}
+
+Gostaria de mais informações sobre o Programa Broker Michelin!
+  `;
+
+  // Codifica para URL
+  const mensagemCodificada = encodeURIComponent(mensagem);
+  
+  // Número do WhatsApp (sem +)
+  const telefone = '5567984173800';
+  
+  // URL do WhatsApp Web
+  const urlWhatsApp = `https://wa.me/${telefone}?text=${mensagemCodificada}`;
+  
+  // Abre em nova aba
+  window.open(urlWhatsApp, '_blank');
+}
+
 </script>
 
 </body>
