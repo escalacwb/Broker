@@ -552,7 +552,7 @@
   </style>
 </head>
 <body>
-
+  
 <div class="container">
   <!-- HEADER COM LOGO -->
   <header>
@@ -565,6 +565,8 @@
     </div>
   </header>
 
+
+
   <!-- INFORMAÇÕES INICIAIS -->
   <div class="info-section">
     <h2>📌 O Programa Broker Michelin</h2>
@@ -573,9 +575,9 @@
     <h3>✨ Principais Benefícios</h3>
     <ul>
       <li>Nota fiscal emitida pela Michelin direto para sua empresa</li>
-      <li>Economia real de 7-10% vs. mercado tradicional</li>
+      <li>Economia real de até 30% vs. mercado tradicional</li>
       <li>Logística Michelin no seu endereço</li>
-      <li>Consultoria e suporte completo pela Capital Truck</li>
+      <li>Consultoria e suporte completo pela Capital Truck Center</li>
     </ul>
   </div>
 
@@ -619,7 +621,7 @@
         <tr>
           <td>Suporte Técnico</td>
           <td>Limitado</td>
-          <td>✓ Capital Truck + Michelin</td>
+          <td>✓ Capital + Michelin</td>
         </tr>
         <tr>
           <td>Qualidade Garantida</td>
@@ -632,7 +634,7 @@
 
   <!-- LINHAS DISPONÍVEIS -->
   <div class="info-section">
-    <h2>🛞 Linhas Disponíveis no Programa Broker</h2>
+    <h2>Principais Linhas Disponíveis no Programa Broker</h2>
     <table>
       <thead>
         <tr>
@@ -695,16 +697,16 @@
     <h2>❓ Perguntas Frequentes</h2>
     
     <h3>Como funciona o cadastro?</h3>
-    <p>Capital Truck faz o cadastro para você. Basta fornecer documentação (CNPJ, Sintegra, Contrato Social). Michelin aprova em dias. Você começa a pedir em seguida.</p>
+    <p>Capital faz o cadastro para você. Basta fornecer documentação (CNPJ, Sintegra, Contrato Social). Michelin aprova em dias. Você começa a pedir em seguida.</p>
 
     <h3>Qual o mínimo de compra?</h3>
-    <p>Mínimo 12 pneus/mês para se qualificar. Cada pedido deve ter no mínimo 10 pneus. Você pode fazer vários pedidos pequenos ao longo do mês.</p>
+    <p>Mínimo 12 pneus/mês para se qualificar. Cada pedido deve ter no mínimo 10 pneus.</p>
 
-    <h3>Qual o prazo de entrega?</h3>
+    <h3>Qual o prazo de pagamento?</h3>
     <p>Conforme análise Michelin. Limitado à 28 dias. Você recebe a NF direto de fábrica com as condições aprovadas.</p>
 
     <h3>Há garantia nos pneus?</h3>
-    <p>Sim! Garantia Michelin de fábrica contra defeitos de fabricação. Capital Truck oferece suporte técnico durante toda a vida do pneu.</p>
+    <p>Sim! Garantia Michelin de fábrica contra defeitos de fabricação. Capital oferece suporte técnico durante toda a vida do pneu.</p>
 
     <h3>A entrega é garantida?</h3>
     <p>Sim. Logística Michelin garante entrega no prazo.</p>
@@ -713,7 +715,7 @@
     <p>Sim. Michelin aprova limite de crédito (até R$ 80.000). Análise completa: CNPJ ativo, documentação regular, etc.</p>
 
     <h3>E quando a frota crescer?</h3>
-    <p>Sim! Se sua frota crescer acima de 29 pneus/mês, você pode se tornar cliente direto Michelin com gerente de conta.</p>
+    <p>Se sua frota crescer acima de 29 pneus/mês, você pode se tornar cliente direto Michelin com gerente de conta.</p>
   </div>
 
   <!-- CALCULADORA -->
@@ -731,18 +733,18 @@
 
       <div class="form-group">
         <label>Número de veículos</label>
-        <input type="number" id="num_veiculos" value="30" min="1" max="1000">
+        <input type="number" id="num_veiculos" value="10" min="1" max="1000">
       </div>
 
       <div class="form-group">
         <label>Número de pneus em solo (frota total)</label>
-        <input type="number" id="num_pneus" value="300" min="10" max="10000">
+        <input type="number" id="num_pneus" value="100" min="10" max="10000">
         <div class="info-text">Total de pneus que sua frota utiliza (Ex: 30 veículos × 10 pneus)</div>
       </div>
 
       <div class="form-group">
         <label>KM MENSAL por veículo (em média)</label>
-        <input type="number" id="km_mensal" value="50000" min="5000" max="100000" step="1000">
+        <input type="number" id="km_mensal" value="10000" min="500" max="100000" step="1000">
       </div>
 
       <h3>Pneus Atuais</h3>
@@ -760,12 +762,12 @@
 
       <div class="form-group">
         <label>Preço pago ATUALMENTE por pneu novo (R$)</label>
-        <input type="number" id="preco_pneu_atual" value="2500" min="1500" max="5000" step="50">
+        <input type="number" id="preco_pneu_atual" value="2500" min="1000" max="5000" step="50">
       </div>
 
       <div class="form-group">
         <label>Km que cada pneu AGUENTA HOJE (vida útil em km)</label>
-        <input type="number" id="km_pneu_atual" value="90000" min="40000" max="120000" step="1000">
+        <input type="number" id="km_pneu_atual" value="60000" min="10000" max="300000" step="1000">
         <div class="info-text">Durabilidade média do pneu que você usa atualmente</div>
       </div>
 
@@ -789,7 +791,7 @@
         </div>
         <div class="form-group">
           <label>Durabilidade esperada - Energy Z (km)</label>
-          <input type="number" id="km_michelin_energy" value="120000" min="40000" max="150000" step="1000">
+          <input type="number" id="km_michelin_energy" value="150000" min="10000" max="300000" step="1000">
           <div class="info-text">Vida útil esperada em 1ª vida</div>
         </div>
       </div>
@@ -797,7 +799,7 @@
       <div id="dados_multi" class="linha-especifica">
         <div class="form-group">
           <label>Durabilidade esperada - Multi Z2 (km)</label>
-          <input type="number" id="km_michelin_multi" value="100000" min="40000" max="150000" step="1000">
+          <input type="number" id="km_michelin_multi" value="150000" min="10000" max="300000" step="1000">
           <div class="info-text">Vida útil esperada em 1ª vida</div>
         </div>
       </div>
@@ -805,7 +807,7 @@
       <div id="dados_works" class="linha-especifica">
         <div class="form-group">
           <label>Durabilidade esperada - X Works (km)</label>
-          <input type="number" id="km_michelin_works" value="95000" min="40000" max="120000" step="1000">
+          <input type="number" id="km_michelin_works" value="150000" min="10000" max="300000" step="1000">
           <div class="info-text">Vida útil esperada em 1ª vida</div>
         </div>
       </div>
@@ -819,12 +821,12 @@
 
       <div class="form-group">
         <label>Consumo médio caminhão (km/L)</label>
-        <input type="number" id="km_por_litro" value="2.5" min="1.5" max="5.0" step="0.1">
+        <input type="number" id="km_por_litro" value="2.0" min="1.0" max="7.0" step="0.1">
       </div>
 
       <div class="form-group">
         <label>Preço do diesel (R$/L)</label>
-        <input type="number" id="preco_diesel" value="5.99" min="3" max="10" step="0.01">
+        <input type="number" id="preco_diesel" value="6.00" min="1" max="10" step="0.01">
       </div>
 
       <h3>Comercial</h3>
@@ -846,7 +848,7 @@
   <div class="resultado" id="resultado">
     <!-- 4 CARDS PRINCIPAIS -->
     <div class="metric-card preco">
-      <div class="metric-label">Investimento em Preço
+      <div class="metric-label">Diferença do Investimento em Relação a concorrencia:
         <span class="tooltip">?
           <span class="tooltiptext">(preço atual - preço Michelin) × compra mensal × 12 meses</span>
         </span>
@@ -873,9 +875,9 @@
     </div>
 
     <div class="metric-card roi">
-      <div class="metric-label">Economia Anual
+      <div class="metric-label">Economia Anual Cliente Broker
         <span class="tooltip">?
-          <span class="tooltiptext">Investimento em preço + economia combustível + economia durabilidade</span>
+          <span class="tooltiptext">Diferença do Investimento em Relação a concorrencia + economia combustível + economia durabilidade</span>
         </span>
       </div>
       <div class="metric-value" id="res_total_anual">R$ 0</div>
@@ -889,11 +891,11 @@
       <div class="detalhe-secao">
         <div class="detalhe-secao-titulo">
           <span class="detalhe-secao-icon">💰</span>
-          Investimento em Preço
+          Diferença do Investimento em Relação a concorrencia:
         </div>
         <div class="detalhe-row">
           <div class="detalhe-item">
-            <div class="detalhe-label">Preço Atual (Pneu)
+            <div class="detalhe-label">Preço do Pneu Atual
               <span class="tooltip">?
                 <span class="tooltiptext">Valor pago atualmente em cada pneu novo (input do gestor)</span>
               </span>
@@ -925,7 +927,7 @@
             <div class="detalhe-valor" id="det_compra_mensal">0 pneus</div>
           </div>
           <div class="detalhe-item">
-            <div class="detalhe-label">Custo Anual
+            <div class="detalhe-label">Diferença de Custo Anual
               <span class="tooltip">?
                 <span class="tooltiptext">Diferença × compra mensal × 12 meses</span>
               </span>
@@ -1053,7 +1055,7 @@
           <div class="detalhe-item">
             <div class="detalhe-label">Economia Anual
               <span class="tooltip">?
-                <span class="tooltiptext">Investimento em preço + economia combustível + economia durabilidade</span>
+                <span class="tooltiptext">Diferença do Investimento em Relação a concorrencia + economia combustível + economia durabilidade</span>
               </span>
             </div>
             <div class="detalhe-valor" id="det_economia_anual">R$ 0</div>
@@ -1092,6 +1094,7 @@ function atualizarLinhaEspecifica() {
 }
 
 function calcular() {
+  // Inputs
   const empresa = document.getElementById('empresa').value;
   const num_veiculos = Number(document.getElementById('num_veiculos').value);
   const num_pneus = Number(document.getElementById('num_pneus').value);
@@ -1111,6 +1114,7 @@ function calcular() {
   const preco_michelin = PRECOS_BROKER[linha];
   const km_anual_frota = km_mensal * 12 * num_veiculos;
 
+  // Obter km Michelin conforme linha
   let km_michelin_1vida = 0;
   let economia_combustivel_pct = 0;
   
@@ -1123,23 +1127,34 @@ function calcular() {
     km_michelin_1vida = Number(document.getElementById('km_michelin_works').value);
   }
 
+  // ===== CÁLCULOS PRINCIPAIS =====
+
+  // 1. COMPRA MENSAL
   const pneus_compra_mensal = (num_pneus * km_mensal) / km_pneu_atual;
 
-  const diferenca_preco_unitaria = preco_pneu_atual - preco_michelin;
+  // 2. INVESTIMENTO EM PREÇO
+  const diferenca_preco_unitaria = (preco_pneu_atual - preco_michelin) * (-1);
   const custo_preco_anual = diferenca_preco_unitaria * pneus_compra_mensal * 12;
 
+  // 3. ECONOMIA EM COMBUSTÍVEL
   const km_economizado_combustivel = km_anual_frota * (economia_combustivel_pct / 100);
   const litros_economizados = km_economizado_combustivel / km_litro;
   const economia_combustivel_anual = litros_economizados * preco_diesel;
 
+  // 4. CUSTO POR KM
   const custo_km_atual = preco_pneu_atual / km_pneu_atual;
   const custo_km_michelin = preco_michelin / km_michelin_1vida;
   const economia_por_km = custo_km_atual - custo_km_michelin;
 
+  // 5. ECONOMIA EM DURABILIDADE
   const economia_durabilidade_anual = km_anual_frota * economia_por_km;
 
-  const total_anual = custo_preco_anual + economia_combustivel_anual + economia_durabilidade_anual;
+  // 6. TOTAL ANUAL
+  const total_anual = -custo_preco_anual + economia_combustivel_anual + economia_durabilidade_anual;
 
+  // ===== EXIBIÇÃO DOS RESULTADOS =====
+
+  // Cards principais
   if (custo_preco_anual >= 0) {
     document.getElementById('res_custo_preco').textContent = 'R$ ' + custo_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
   } else {
@@ -1155,27 +1170,32 @@ function calcular() {
     document.getElementById('res_total_anual').textContent = '-R$ ' + Math.abs(total_anual).toLocaleString('pt-BR', {maximumFractionDigits: 0});
   }
 
+  // Detalhes Seção 1
   document.getElementById('det_preco_atual').textContent = 'R$ ' + preco_pneu_atual.toLocaleString('pt-BR', {maximumFractionDigits: 2});
   document.getElementById('det_preco_michelin').textContent = 'R$ ' + preco_michelin.toLocaleString('pt-BR', {maximumFractionDigits: 2});
   document.getElementById('det_diferenca_unitaria').textContent = 'R$ ' + diferenca_preco_unitaria.toLocaleString('pt-BR', {maximumFractionDigits: 2});
   document.getElementById('det_compra_mensal').textContent = pneus_compra_mensal.toFixed(1) + ' pneus/mês';
   document.getElementById('det_custo_preco_anual').textContent = 'R$ ' + custo_preco_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
 
+  // Detalhes Seção 2
   document.getElementById('det_economia_comb_pct').textContent = economia_combustivel_pct.toFixed(1) + '%';
   document.getElementById('det_km_anual').textContent = km_anual_frota.toLocaleString('pt-BR') + ' km';
   document.getElementById('det_litros_economizados').textContent = litros_economizados.toLocaleString('pt-BR', {maximumFractionDigits: 0});
   document.getElementById('det_preco_diesel').textContent = 'R$ ' + preco_diesel.toLocaleString('pt-BR', {maximumFractionDigits: 2});
   document.getElementById('det_economia_combustivel_anual').textContent = 'R$ ' + economia_combustivel_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
 
+  // Detalhes Seção 3
   document.getElementById('det_custo_km_atual').textContent = 'R$ ' + custo_km_atual.toFixed(4);
   document.getElementById('det_custo_km_michelin').textContent = 'R$ ' + custo_km_michelin.toFixed(4);
   document.getElementById('det_economia_km').textContent = 'R$ ' + economia_por_km.toFixed(4);
   document.getElementById('det_km_frota').textContent = km_anual_frota.toLocaleString('pt-BR') + ' km';
   document.getElementById('det_economia_durabilidade_anual').textContent = 'R$ ' + economia_durabilidade_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
 
+  // Detalhes Seção 4
   document.getElementById('det_economia_mensal').textContent = 'R$ ' + (total_anual/12).toLocaleString('pt-BR', {maximumFractionDigits: 0});
   document.getElementById('det_economia_anual').textContent = 'R$ ' + total_anual.toLocaleString('pt-BR', {maximumFractionDigits: 0});
 
+  // Aviso migração
   if (situacao === 'migracao') {
     document.getElementById('aviso-migracao').style.display = 'block';
   } else {
